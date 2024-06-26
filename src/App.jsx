@@ -53,7 +53,7 @@ function App() {
       if (items.id == item.id) {
         return {
           ...item, title: <div className='editor-container'>
-            <input placeholder={item.title} onBlur={() => onBlured(item)} autoFocus className='edit-input' onChange={editTitle} />
+            <input onKeyDown={(event) => enterHandler(item, event)} placeholder={item.title} onBlur={() => onBlured(item)} autoFocus className='edit-input' onChange={editTitle} />
           </div>
         }
       } else {
@@ -63,17 +63,28 @@ function App() {
     setShopCards(newEdit)
   }
 
+  function editTitle(event) {
+    newTitle = event.target.value
+  }
+
   function onBlured(item) {
     let setTitle = shopCards.map((items) => {
       if (items.id == item.id) {
-        return {...items, title: newTitle}
+        return { ...items, title: newTitle }
       } else return items
     })
     setShopCards(setTitle)
   }
 
-  function editTitle(event) {
-    newTitle = event.target.value
+  function enterHandler(item, event) {
+    if (event.code == 'Enter') {
+      let setTitle = shopCards.map((items) => {
+        if (items.id == item.id) {
+          return { ...items, title: newTitle }
+        } else return items
+      })
+      setShopCards(setTitle)
+    }
   }
 
 
