@@ -53,7 +53,7 @@ function App() {
       if (items.id == item.id) {
         return {
           ...item, title: <div className='editor-container'>
-            <input onBlur={() => onBlured(item)} autoFocus className='edit-input' onChange={editTitle} />
+            <input placeholder={item.title} onBlur={() => onBlured(item)} autoFocus className='edit-input' onChange={editTitle} />
           </div>
         }
       } else {
