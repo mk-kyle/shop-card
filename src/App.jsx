@@ -70,7 +70,7 @@ function App() {
   function onBlured(item) {
     let setTitle = shopCards.map((items) => {
       if (items.id == item.id) {
-        return { ...items, title: newTitle }
+        return { ...items, title: item.title }
       } else return items
     })
     setShopCards(setTitle)
