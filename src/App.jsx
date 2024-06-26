@@ -64,18 +64,12 @@ function App() {
   }
 
   function onBlured(item) {
-    shopCards.map((items, index) => {
+    let setTitle = shopCards.map((items) => {
       if (items.id == item.id) {
-        let newObj = {
-          title: newTitle,
-          unit: item.unit,
-          counts: item.counts,
-          id: item.id
-        }
-        shopCards[index] = newObj
-      }
+        return {...items, title: newTitle}
+      } else return items
     })
-    setShopCards(shopCards)
+    setShopCards(setTitle)
   }
 
   function editTitle(event) {
