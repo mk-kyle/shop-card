@@ -2,7 +2,7 @@ const List = ({ removeHandler, shopCards, editorHandler }) => {
     return (
         shopCards.map((items, index) => {
             return (
-                <div key={`${index}`}>
+                <div className="card_style" key={`${index}`}>
                     <p key={`container-${index}`}>{items.title} </p>
                     <span key={`title-${index}`}>{items.counts} </span>
                     <span key={`unit-${index}`}>{items.unit} </span>
